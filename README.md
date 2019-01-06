@@ -28,7 +28,7 @@ public class WithCustomPolicyHandler : IHandleMessages<WithCustomPolicyMessage>
   }
   ```
 
-`AddPolicy<T>` method creates a `CustomRecoveryPolicy` and adds it' dictionary.
+`AddPolicy<T>` method creates a `CustomRecoveryPolicy` and adds its own dictionary.
 
 ```csharp
 //CustomRecoveryPolicyFactory.cs
@@ -57,7 +57,7 @@ to find particular policy, this method gets type name from message header.
 //CustomRecoverablilityExtensions.cs
 var policyKey = context.Message.Headers["NServiceBus.EnclosedMessageTypes"].Split(",")[0];
 ```
-this method returns a `Func` which meets the CustomPolicy to NServiceBus
+this method returns a `Func` which introduces the CustomPolicy to NServiceBus
 
 ```csharp
 //Startup.cs
