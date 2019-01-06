@@ -17,11 +17,9 @@ namespace WebApplication1.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> SendMessageWithOrWithoutCustomPolicy(string message, bool withCustomPolicy)
+        public async Task<IActionResult> SendMessage(string message, bool withCustomPolicy)
         {
-
             await rabbitMqEndpointInstance.SendLocal(new MyMessage() { Message = message });
-
             return Ok();
         }
     }
