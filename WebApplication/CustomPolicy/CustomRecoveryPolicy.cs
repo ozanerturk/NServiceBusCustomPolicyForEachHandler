@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.CustomPolicy
+﻿    namespace WebApplication1.CustomPolicy
 {
     public class CustomRecoveryPolicy
     {

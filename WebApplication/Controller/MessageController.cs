@@ -19,14 +19,9 @@ namespace WebApplication1.Controller
         [HttpPost]
         public async Task<IActionResult> SendMessageWithOrWithoutCustomPolicy(string message, bool withCustomPolicy)
         {
-            if (withCustomPolicy)
-            {
-                await rabbitMqEndpointInstance.SendLocal(new WithCustomPolicyMessage() { Message = message });
-            }
-            else
-            {
-                await rabbitMqEndpointInstance.SendLocal(new WithoutCustomPolicyMessage() { Message = message });
-            }
+
+            await rabbitMqEndpointInstance.SendLocal(new MyMessage() { Message = message });
+
             return Ok();
         }
     }
